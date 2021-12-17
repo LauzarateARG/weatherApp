@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
 import SearchBar from "../SearchBar/SearchBar";
@@ -13,8 +13,9 @@ function CardContain() {
   const onSearch = (city) => {
     let rep = false
 
-    cities?.map(m=>{
-      if(m.name===currentCity.name) rep = true
+    rep = cities?.map(m=>{
+      if(m.name===currentCity.name) return true
+      return false
     })
 
     if(!currentCity.name|| rep === true){
